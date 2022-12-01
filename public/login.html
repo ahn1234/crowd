@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login2</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+ 
+<body>
+    <!-- sign up box -->
+    <div class="box">
+        <div class="form">
+            <h2>Sign Up</h2>
+            <div class="inputBox">
+                <input type="text" required="required" id="name-new">
+                <span>
+                    UserName
+                </span>
+                <i></i>
+            </div>
+            <div class="inputBox">
+                <input type="text" required="required" id="email-new">
+                <span>
+                    UserEmail
+                </span>
+                <i></i>
+            </div>
+            <div class="inputBox">
+                <input type="password" required="required" id="pw-new">
+                <span>
+                    Password
+                </span>
+                <i></i>
+            </div>
+            <input type="submit" value='Sign Up' id="register">
+        </div>
+    </div>
+ 
+ 
+    <!-- Sign in Box -->
+    <div class="box">
+        <div class="form">
+            <h2>Sign In</h2>
+            <div class="inputBox">
+                <input type="text" required="required" id="email">
+                <span>
+                    UserEmail
+                </span>
+                <i></i>
+            </div>
+            <div class="inputBox">
+                <input type="password" required="required" id="pw">
+                <span>
+                    Password
+                </span>
+                <i></i>
+            </div>
+            <input type="submit" value='Sign In' id="login">
+        </div>
+    </div>
+ 
+</body>
+ 
+ 
+ 
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
+ 
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+ 
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+ 
+<!-- firebase 셋팅, 모든 html마다 있어야함 -->
+<script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyAjFDujRZbQxm5YY-ynFC5kiLNGzt6NcMI",
+  authDomain: "cccc-2a18a.firebaseapp.com",
+  projectId: "cccc-2a18a",
+  storageBucket: "cccc-2a18a.appspot.com",
+  messagingSenderId: "231950575405",
+  appId: "1:231950575405:web:0320c24b35fbc2749215a4"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig)
+</script>
+ 
+ 
+ 
+<script>
+    const db = firebase.firestore();
+    const storage = firebase.storage();
+ 
+ 
+    // localStorage를 통한 로그인 유지
+    // var 뺀거 = localStorage.getItem('user');
+    // $('#userName').html(JSON.parse(뺀거).displayName) //username태그에 이름 쏴줌
+ 
+    // firebase.auth().onAuthStateChanged((user) => {
+    //     if (user) {
+    //         console.log(user.displayName)
+    //         localStorage.setItem('user', JSON.stringify(user))
+    //     window.location.href = "/index.html";
+ 
+    //     }
+    // })
+ 
+ 
+    //회원가입
+    $('#register').click(function () {
+ 
+        var 이메일 = $('#email-new').val();
+        var 패스워드 = $('#pw-new').val();
+        var 이름 = $('#name-new').val();
+ 
+        firebase.auth().createUserWithEmailAndPassword(이메일, 패스워드).then((result) => {
+ 
+            db.collection('user').doc(result.user.uid).set({
+                name: 이름,
+                email: 이메일,
+                uid: result.user.uid
+            })
+ 
+            console.log(result.user)
+            result.user.updateProfile({ displayName: 이름 })
+ 
+            alert('회원가입 성공')
+        })
+    })
+ 
+    //로그인
+    $('#login').click(function () {
+ 
+        var 이메일 = $('#email').val();
+        var 패스워드 = $('#pw').val();
+ 
+        firebase.auth().signInWithEmailAndPassword(이메일, 패스워드).then((result) => {
+        console.log(result.user)
+ 
+        localStorage.setItem('user', JSON.stringify(result.user))
+       
+ 
+        window.location.href = "/index.html";
+ 
+        })
+    })
+ 
+    $('#logout').click(function () {
+            firebase.auth().signOut()
+            localStorage.removeItem('user')
+        })
+ 
+</script>
+ 
+</html>
+ 
+
