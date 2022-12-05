@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>main page</title>
+    <title>upload page</title>
 
     <link rel="icon" href="./favicon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
@@ -16,7 +16,7 @@
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/project_list.css">
+    <link rel="stylesheet" href="/css/new_funding.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
         integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
@@ -31,6 +31,8 @@
 
     <link rel="stylesheet" href="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.js"></script>
+
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"
         integrity="sha512-8E3KZoPoZCD+1dgfqhPbejQBnQfBXe8FuwL4z/c8sTrgeDMFEnoyTlH3obB4/fV+6Sg0a0XF+L/6xS4Xx1fUEg=="
@@ -80,9 +82,7 @@
                     </a>
                 </li>
                 <li class="item">
-                    <a href="/upload.html">
-                        <div class="item__name glitch">프로젝트 신청하기</div>
-                    </a>
+                    <div class="item__name glitch">프로젝트 신청하기</div>
                 </li>
                 <li class="item">
                     <a href="/admin.html">
@@ -94,28 +94,39 @@
 
 
 
-    <section class="cont">
-        <div class="container">
-            <!-- 왼쪽 사이드바 -->
-            <div class="leftMenu">
-                <h1 class="glitch">Categories</h1>
-                <div class="cats">
+    <!-- CONTENT -->
+    <div class="content">
+        <div class="inner">
+            <div class="content__title">
+                <h1>신규 후원 등록하기</h1>
+            </div>
+            <div class="content__form">
+                <div class="form__title">
+                    <h2>후원 정보</h2>
+                </div>
+                <div class="form__input">
+                    <div class="input__title">
+                        <h3>후원 제목</h3>
+                    </div>
+                    <div class="input__box">
+                        <input type="text" id="sup_name" placeholder="후원 제목을 입력해주세요.">
+                    </div>
+                </div>
+                <div class="form__input">
+                    <div class="input__title">
+                        <h3>프로젝트 금액</h3>
+                    </div>
+                    <div class="input__box">
+                        <textarea name="description" id="sup_money" placeholder="후원 금액을 입력해주세요."></textarea>
+                    </div>
                 </div>
 
-            </div>
-
-
-            <div class="content">
-                <div class="products">
-
-
-
+                <div class="form__submit">
+                    <button id="projectRegister"> 신청하기 </button>
                 </div>
             </div>
         </div>
-
-    </section>
-
+    </div>
 
 
 
@@ -168,10 +179,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
 
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
+
 
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
@@ -180,34 +188,37 @@
 
         var firebaseConfig = {
             apiKey: "AIzaSyAjFDujRZbQxm5YY-ynFC5kiLNGzt6NcMI",
-            authDomain: "cccc-2a18a.firebaseapp.com",
-            projectId: "cccc-2a18a",
-            storageBucket: "cccc-2a18a.appspot.com",
-            messagingSenderId: "231950575405",
-            appId: "1:231950575405:web:0320c24b35fbc2749215a4"
+                    authDomain: "cccc-2a18a.firebaseapp.com",
+                    projectId: "cccc-2a18a",
+                    storageBucket: "cccc-2a18a.appspot.com",
+                    messagingSenderId: "231950575405",
+                    appId: "1:231950575405:web:0320c24b35fbc2749215a4"
         };
 
         // Initialize Firebase
-        firebase.initializeApp(firebaseConfig)
+        firebase.initializeApp(firebaseConfig) 
     </script>
 
     <script>
         const db = firebase.firestore();
         const storage = firebase.storage();
 
-
         if (localStorage.getItem('user')) {
-            var 뺀거 = localStorage.getItem('user');
-            $('#userName').html(JSON.parse(뺀거).displayName + '님 환영합니다!');
-            //로그인 상태에서 버튼 숨기기
-            if (뺀거) {//로그인 한 상태
-                $('#signin').hide();
-                $('#logout').show();
-            } else {
-                $('#signin').show();
-                $('#logout').hide();
-            }
-        }
+                    var 뺀거 = localStorage.getItem('user');
+                    $('#userName').html(JSON.parse(뺀거).displayName + '님 환영합니다!');
+                    //로그인 상태에서 버튼 숨기기
+                    if (뺀거) {//로그인 한 상태
+                        $('#signin').hide();
+                        $('#logout').show();
+                    } else {
+                        $('#signin').show();
+                        $('#logout').hide();
+                    }
+                }
+
+
+
+
 
         //로그아웃
         $('#logout').click(function () {
@@ -224,101 +235,54 @@
 
 
 
+        //프로젝트 등록
 
+        //입력이 다 안되어있으면 등록 안되게
+        $('#projectRegister').click(function () {
+            //     if ($('#game_name').val() == '' || $('#game_cat').val() == '' || $('#game_from').val() == '' ||
+            //         $('#game_to').val() == '') {
+            //         alert('모든 항목을 입력해주세요.');
+            //     } else {
 
+            //하위 컬렉션인 support collection에 후원에 관련된 데이터를 넣어줌
+           
 
+            var 쿼리스트링 = new URLSearchParams(window.location.search);
+            var 내name = JSON.parse(localStorage.getItem('user')).displayName;
 
+            console.log(쿼리스트링.get('id'));
+            
+            var 데이터 = {
+                sup_date: new Date(),
+                sup_name: $('#sup_name').val(),
+                //sup_money int형으로 변환
+                sup_money: parseInt($('#sup_money').val()),
+                sup_user: [내name],
+            }
 
-        const productsContainer = document.querySelector(".products");
-        const searchInput = document.querySelector(".search");
-        const categoriesContainer = document.querySelector(".cats");
-        const priceRange = document.querySelector(".priceRange");
-        const priceValue = document.querySelector(".priceValue");
-
-
-
-        db.collection('game').get().then((결과) => {
-            결과.forEach((doc) => {
-                // 달성률 = (total_current_money / goal) * 100
-                var 달성률 = doc.data().current_total_money / doc.data().goal * 100;
-                //달성률은 정수로 출력
-                달성률 = parseInt(달성률);
-                var 템플릿 =
-                    `
-                    <div class="product">
-                        <div class="lines"></div>
-                        <div class="imgBx">
-                            <img src="${doc.data().image}" alt="">
-                        </div>
-                        <span class="glitch game_name">${doc.data().name}</span>
-                        <span class="game_cat">${doc.data().category} </span>
-                        <label class="letter">후원 수 : <label class="game_sup">${doc.data().sup} </label></label>
-                        <label class="letter">팔로워수 : <label class="game_foll">${doc.data().foll} </label></label>
-                        <label class="letter">달성률 : <label class="game_ach">${달성률} %</label></label>
-                        <div class="actionBtn ">
-                        <button class="glitch" onclick="location.href='/project_detail.html?id=${doc.id}'"> 자세히 보기</button>
-                        </div>
-                    </div>
-                    `
-                    ;
-                $('.products').append(템플릿);
-            })
-        })
-
-
-
-        // 카테고리 필터링
-        const setCategories = () => {
-
-
-            const allCats = [];
-            //firebase db에서 데이터 가져와서 allCats 배열에 넣기
-            db.collection('game').get().then((결과) => {
-                결과.forEach((doc) => {
-                    allCats.push(doc.data().category);
-
+            //후원이 완료되면 game collection에 있는 current_total_money에 후원금액을 더해줌
+            db.collection('game').doc(쿼리스트링.get('id')).get().then(function (doc) {
+                var 현재금액 = doc.data().current_total_money;
+                var 새로운금액 = 현재금액 + parseInt($('#sup_money').val());
+                db.collection('game').doc(쿼리스트링.get('id')).update({
+                    current_total_money: 새로운금액,
                 })
-                const categories = [
-                    "ALL",
-                    ...allCats.filter((item, i) => {
-                        return allCats.indexOf(item) === i;
-                    }),
-                ];
-
-
-                categoriesContainer.innerHTML = categories.map(game_cat =>
-                    `
-        <span class = "cat">${game_cat}</span>
-        `).join("");
-
-                categoriesContainer.addEventListener("click", (e) => {
-                    const selectedCat = e.target.textContent;
-
-                    selectedCat === "ALL"
-                        ? displayProducts(data)
-                        : displayProducts(data.filter((item) => item.game_cat === selectedCat));
-                });
             })
+            
 
+            db.collection('game').doc(쿼리스트링.get('id')).collection('support').add(데이터).then(function (docRef) {
+                alert('후원이 완료되었습니다.');
+                location.href = 'project_detail.html?id=' + 쿼리스트링.get('id');
+            }).catch(function (error) {
+                alert('후원에 실패했습니다.');
+            });
+        });
 
-
-
-        };
-        setCategories();
-
-
-
+        
 
 
 
     </script>
-
-
-
-
-
-
-    <!-- <script src="/js/project_list.js"></script> -->
 
 </body>
 

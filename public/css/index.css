@@ -220,9 +220,8 @@
 }
 .bg-right{
     overflow: auto;
- 
+
 }
-/* 오른쪽 스크롤바 관련 */
 .bg-right::-webkit-scrollbar {
     width: 7px;
   }
@@ -265,7 +264,7 @@
     margin : 3rem;
     margin-top: 15rem;
 }
- 
+
 .card--list{
     position: relative;
     width: 250px;
@@ -273,7 +272,7 @@
     background: #fff;
     transition: 0.5s;
 }
- 
+
 .card--list .lines{
     position: absolute;
     inset: 0;
@@ -292,7 +291,7 @@
     #45f3ff, #45f3ff, transparent);
     animation: animateline 4s linear infinite;
 }
- 
+
 @keyframes animateline{
     0%{
         transform: translate(-50%,-50%) rotate(0deg);
@@ -371,8 +370,8 @@
     width: 100%;
     transition: 0.5s;
 }
- 
-.card--list .content .details h2{   /* 제목 */
+
+.card--list .content .details h2{   
     color : #23242a;
     -webkit-text-stroke: 0.06vw #45f3ff;
     font-size: 2.5rem;
@@ -399,7 +398,7 @@
     filter: drop-shadow(0 0 1.5px #fff);
     font-size: 1.3rem;
     margin: 15px;
-   
+
 }
 .bg-left .card--list .content .details .actionBtn{ /* 바로가기 버튼*/
     display : flex;
@@ -423,7 +422,7 @@
 }
 .bg-left .card--list .content .details .actionBtn button:hover{
     opacity: 1;
-    background-color: #45f3ff;
+    background-color: #7dff45;
     color: #23242a;
 }
 .container--percent{
@@ -535,10 +534,9 @@ letter-spacing: 3px;
 text-transform: uppercase;
 -webkit-text-stroke: 0.06vw #fff;
 filter: drop-shadow(0 0 2px #fff);
- 
 }
- 
- 
+
+
 .rewards .bg-right{
     width: 30%;
     height: 100%;
@@ -546,39 +544,35 @@ filter: drop-shadow(0 0 2px #fff);
     position: absolute;
     top: 0;
     right: 0;
-    margin-right: 1rem;
     border-left:#383a43 3px solid;
- 
-}
- 
- 
- 
-.rewards .bg-right{
     justify-content: center;
     align-items: center;
+   padding-left: 4rem;
 }
- 
+
+
+
 .rewards .bg-right .bg-right-title .glitch{
     font-size: 4rem;
     -webkit-text-stroke: 0.06vw #45f3ff;
     filter: drop-shadow(0 0 8px #45f3ff);
 }
-.rewards .bg-right .container{
+/* .rewards .bg-right .container3{
     display: flex;
     width: 100%;
     flex-wrap: wrap;
     justify-content: center;
-}
+} */
 .bg-right .card--list .content{
     position: absolute;
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
-    /* align-items: flex-start; */
+   
     overflow: hidden;
 }
-.rewards .bg-right .container .card--list{
+.rewards .bg-right  .card--list{
     position: relative;
     width: 450px;
     height: 500px;
@@ -586,11 +580,11 @@ filter: drop-shadow(0 0 2px #fff);
     transition: 0.5s;
 }
  
-.rewards .bg-right .container .container-item{
-    /* margin : 5rem; */
+.rewards .bg-right  .container-item{
+    
     margin-top: 15rem;
 }
-.bg-right .container .details{
+.bg-right  .details{
     padding: 5px 20px;
     padding-top: 160px;
     text-align: center;
@@ -606,16 +600,16 @@ filter: drop-shadow(0 0 2px #fff);
     justify-content: center;
     overflow: hidden;
 }
-.bg-right .card--list .content .details .glitch{/*후원목록 내 게임 타이틀*/
+.bg-right .card--list .content .details .glitch{
     font-size: 2rem;
 }
-.bg-right .data span{/*후원목록 내 후원 제목*/
+.bg-right .data span{
     font-size: 1.7rem;
     -webkit-text-stroke: 0.06vw #48ff45;
     filter: drop-shadow(0 0 4px #24910b);
 }
  
-.bg-right .card--list .content .details .actionBtn{ /* 바로가기 버튼*/
+.bg-right .card--list .content .details .actionBtn{ 
     display : flex;
     justify-content: center;
     gap:20px;

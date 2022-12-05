@@ -4,7 +4,7 @@ var earning = document.getElementById('earning').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'polarArea',
     data: {
-        labels: ['인벤토리 기능 좀', '멀티 기능 좀', '버그 좀 수정해줘요'],
+        labels: ['인벤토리 좀 늘려주세요', '멀티 기능 좀 추가해주세요', '아이템 업데이트좀 해주세요'],
         datasets: [{
             label: '# of Votes',
             data: [1200, 1900, 3000],

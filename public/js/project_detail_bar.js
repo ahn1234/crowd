@@ -1,7 +1,7 @@
     // setup
     const data = {
         // labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-        labels: ['인벤토리 기능 좀 넣어 주세요', '멀티기능 좀 추가 해주세요', '버그좀  수정 해주세요'],
+        labels: ['인벤토리 좀 늘려주세요', '멀티 기능 좀 추가해주세요', '아이템 업데이트좀 해주세요'],
         datasets: [{
           label: 'Weekly Sales',
           // data: [18, 12, 6, 9, 12, 3, 9],

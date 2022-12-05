@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+
+.content{
+    font-family: 'Black Han Sans', sans-serif;
+    margin-top: 150px;
+    color: white;
+    font-size: 40px;
+}
+.content__form{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form__title{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.form__input{
+    width: 500px;
+    height: 300px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.form__input:focus{
+    outline: none;
+}
+.form__input::placeholder{
+    color: #fff;
+}
+.input__title{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.input__box{
+    display: flex;
+    flex-direction: column;
+}
