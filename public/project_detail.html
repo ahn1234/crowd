@@ -160,136 +160,7 @@
 
 
                     <!-- 후원 목록 리스트 -->
-                    <!-- <div class="card--list container-item">
-                        <div class="lines"></div>
-                        <div class="sup_content">
-                            <div class="sup_details">
-                                <div class="sup_name glitch">
-                                    인벤토리 칸 좀 늘려주세요!
-                                </div>
-                                <div class="sup_user glitch">
-                                    <label>후원자 명 : <label id="user_name">test01@nav.com</label></label>
-                                </div>
-                                <div class="sup_rest">
-                                    <span>게시 날짜 : </span><span>2022년 10월 21일</span>
-                                </div>
-                                <div class="sup_rest">
-                                    <span>모인 금액 : </span><span>485000원</span>
-                                </div>
-                                <div class="sup_rest">
-                                    <span>후원자 수 : </span><span>50명</span>
-                                </div>
-                                <div class="actionBtn ">
-                                    <button onclick="location.href = 'existing_funding.html'"> 후원 하러가기</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card--list container-item">
-                        <div class="lines"></div>
-                        <div class="sup_content">
-                            <div class="sup_details">
-                                <div class="sup_name glitch">
-                                    인벤토리 칸 좀 늘려주세요!
-                                </div>
-                                <div class="sup_user glitch">
-                                    <label>후원자 명 : <label id="user_name">abxxxx</label></label>
-                                </div>
-                                <div class="sup_rest">
-                                    <span>게시 날짜 : </span><span>2022년 10월 21일</span>
-                                </div>
-                                <div class="sup_rest">
-                                    <span>모인 금액 : </span><span>485000원</span>
-                                </div>
-                                <div class="sup_rest">
-                                    <span>후원자 수 : </span><span>50명</span>
-                                </div>
-                                <div class="actionBtn ">
-                                    <button> 후원 하러가기</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="card--list container-item">
-                        <div class="lines"></div>
-                        <div class="sup_content">
-                            <div class="sup_details">
-                                <div class="sup_name glitch">
-                                    인벤토리 칸 좀 늘려주세요!
-                                </div>
-                                <div class="sup_user glitch">
-                                    <label>후원자 명 : <label id="user_name">abxxxx</label></label>
-                                </div>
-                                <div class="sup_rest">
-                                    <span>게시 날짜 : </span><span>2022년 10월 21일</span>
-                                </div>
-                                <div class="sup_rest">
-                                    <span>모인 금액 : </span><span>485000원</span>
-                                </div>
-                                <div class="sup_rest">
-                                    <span>후원자 수 : </span><span>50명</span>
-                                </div>
-                                <div class="actionBtn ">
-                                    <button> 후원 하러가기</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card--list container-item">
-                        <div class="lines"></div>
-                        <div class="sup_content">
-                            <div class="sup_details">
-                                <div class="sup_name glitch">
-                                    인벤토리 칸 좀 늘려주세요!
-                                </div>
-                                <div class="sup_user glitch">
-                                    <label>후원자 명 : <label id="user_name">abxxxx</label></label>
-                                </div>
-                                <div class="sup_rest">
-                                    <span>게시 날짜 : </span><span>2022년 10월 21일</span>
-                                </div>
-                                <div class="sup_rest">
-                                    <span>모인 금액 : </span><span>485000원</span>
-                                </div>
-                                <div class="sup_rest">
-                                    <span>후원자 수 : </span><span>50명</span>
-                                </div>
-                                <div class="actionBtn ">
-                                    <button> 후원 하러가기</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card--list container-item">
-                        <div class="lines"></div>
-                        <div class="sup_content">
-                            <div class="sup_details">
-                                <div class="sup_name glitch">
-                                    인벤토리 칸 좀 늘려주세요!
-                                </div>
-                                <div class="sup_user glitch">
-                                    <label>후원자 명 : <label id="user_name">abxxxx</label></label>
-                                </div>
-                                <div class="sup_rest">
-                                    <span>게시 날짜 : </span><span>2022년 10월 21일</span>
-                                </div>
-                                <div class="sup_rest">
-                                    <span>모인 금액 : </span><span>485000원</span>
-                                </div>
-                                <div class="sup_rest">
-                                    <span>후원자 수 : </span><span>50명</span>
-                                </div>
-                                <div class="actionBtn ">
-                                    <button> 후원 하러가기</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
+                 
 
                 </div>
             </div>
@@ -423,6 +294,9 @@
                     var 템플릿 =
                         `
                     <div class="elements">
+                        <p id="element_name">전체 후원 수</p>
+                        <p id="element_data">${result.data().sup}개</p>
+                        <br>
                         <p id="element_name">모인 금액</p>
                         <p id="element_data">${result.data().current_total_money}원</p>
                         <br>

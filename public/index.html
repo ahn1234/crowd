@@ -415,6 +415,14 @@
         var 달성률 = doc.data().current_total_money / doc.data().goal * 100;
         //달성률은 정수로 출력
         달성률 = parseInt(달성률);
+        //만약 달성률이 100보다 크면 달성률2에 100으로 저장
+        if (달성률 > 100) {
+          달성률2 = 100;
+        } else {
+          달성률2 = 달성률;
+        }
+
+        
         var 템플릿 =
           `
       <div class="card--list container-item">
@@ -436,7 +444,7 @@
             </div>
             <div class="container--percent">
               <div class="card">
-                <div class="percent" style="--clr:#04fc43;--num:${달성률};">
+                <div class="percent" style="--clr:#04fc43;--num:${달성률2};">
                   <div class="dot"></div>
                   <svg>
                     <circle cx="70" cy="70" r="70"></circle>
@@ -476,6 +484,9 @@
 
 
         db.collection('game').doc(doc.id).collection('support').get().then((결과) => {
+          //game의 id를 따로 저장
+          var 게임id = doc.id;
+          
           결과.forEach((doc) => {
 
             var 템플릿 =
@@ -498,7 +509,7 @@
               </div>
   
               <div class="actionBtn ">
-                <button> 자세히 보기</button>
+                <button onclick="location.href='/project_detail.html?id=${게임id}'"> 자세히 보기</button>
               </div>
             </div>
           </div>

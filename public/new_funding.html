@@ -266,6 +266,8 @@
                 var 새로운금액 = 현재금액 + parseInt($('#sup_money').val());
                 db.collection('game').doc(쿼리스트링.get('id')).update({
                     current_total_money: 새로운금액,
+                    //후원 수 변수인 sup에 1을 더해줌
+                    sup: doc.data().sup + 1,
                 })
             })
             
